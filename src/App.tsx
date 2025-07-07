@@ -1,10 +1,24 @@
 function App() {
   return (
-    <div className="min-h-screen bg-[#0C0C0D] text-white flex items-center justify-center">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">NewLawAI</h1>
-        <p className="text-xl text-gray-300">AI-Powered Legal Assistant</p>
-        <p className="text-sm text-gray-500 mt-4">Loading test - if you see this, React is working</p>
+    <div style={{
+      minHeight: '100vh',
+      backgroundColor: '#0C0C0D',
+      color: 'white',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      fontFamily: 'Arial, sans-serif'
+    }}>
+      <div style={{ textAlign: 'center' }}>
+        <h1 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+          NewLawAI
+        </h1>
+        <p style={{ fontSize: '1.5rem', color: '#ccc', marginBottom: '1rem' }}>
+          AI-Powered Legal Assistant
+        </p>
+        <p style={{ fontSize: '0.9rem', color: '#888' }}>
+          ✅ React is working! This is a test page.
+        </p>
       </div>
     </div>
   )
