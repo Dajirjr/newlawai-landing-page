@@ -5,35 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NewLawAI - AI Legal Assistant</title>
-    <script>
-      // Debug console logging
-      console.log('HTML loaded successfully');
-      window.addEventListener('load', () => {
-        console.log('Window loaded');
-        const root = document.getElementById('root');
-        if (root) {
-          console.log('Root div found:', root);
-          if (root.innerHTML.trim() === '') {
-            console.error('Root div is empty - React failed to mount');
-            root.innerHTML = '<div style="color: red; padding: 20px; font-family: Arial;">❌ React failed to mount. Check console for errors.</div>';
-          }
-        } else {
-          console.error('Root div not found');
-        }
-      });
-      
-      window.addEventListener('error', (e) => {
-        console.error('JavaScript error:', e.error);
-      });
-    </script>
   </head>
-  <body style="background: #0C0C0D; color: white; font-family: Arial;">
-    <div id="root">
-      <div style="padding: 20px; text-align: center;">
-        <p>⏳ Loading React app...</p>
-        <p style="font-size: 0.8em; color: #888;">If this message persists, check browser console for errors.</p>
-      </div>
-    </div>
+  <body>
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
