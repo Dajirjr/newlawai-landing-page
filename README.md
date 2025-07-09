@@ -185,27 +185,90 @@ MYapp/
 
 ## 🌐 Deployment
 
-### Build for Production
-```bash
-npm run build
-```
+### Live Demo
+🔗 **Primary Site:** https://newlawai-landing-page.netlify.app/  
+🔗 **Static Backup:** https://newlawai-landing-page.netlify.app/backup.html  
+🔗 **Test Page:** https://newlawai-landing-page.netlify.app/test.html  
 
-### Deploy to Vercel
-```bash
-# Install Vercel CLI
-npm i -g vercel
+### Multi-Page Architecture
+- **/** - Landing Page with hero, features, testimonials
+- **/features** - Detailed AI capabilities showcase  
+- **/pricing** - Comprehensive pricing plans and FAQ
+- **/testimonials** - Customer success stories and case studies
 
-# Deploy
-vercel
-```
+### Deployment Solutions
 
-### Deploy to Netlify
+#### Option 1: React + Router (Primary)
 ```bash
 # Build the project
 npm run build
 
 # Deploy dist/ folder to Netlify
+# Includes netlify.toml for proper MIME types
+# Includes _redirects for SPA routing
 ```
+
+#### Option 2: Static HTML Backup  
+- **backup.html** - Complete static version with animations
+- No React dependencies, pure HTML/CSS/JS
+- Identical design and functionality
+- Works around ES module MIME type issues
+
+### Netlify Configuration
+
+The project includes comprehensive Netlify configuration:
+
+**netlify.toml:**
+```toml
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[headers]]
+  for = "/assets/*.js"
+  [headers.values]
+    Content-Type = "application/javascript"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+```
+
+**Files included:**
+- `_redirects` - SPA routing support
+- `_headers` - MIME type configuration  
+- `netlify.toml` - Build and deployment settings
+
+### Troubleshooting
+
+#### MIME Type Issues
+If you encounter "Expected a JavaScript-or-Wasm module script" errors:
+1. Use the static backup: `/backup.html`
+2. Verify `netlify.toml` is deployed
+3. Check browser console for specific errors
+
+#### Build Issues
+```bash
+# Clean and rebuild
+rm -rf node_modules dist
+npm install
+npm run build
+```
+
+### Deploy to Other Platforms
+
+#### Vercel (Alternative)
+```bash
+# Note: May have MIME type issues
+npm i -g vercel
+vercel
+```
+
+#### Manual Deploy
+1. Run `npm run build`
+2. Upload `dist/` folder contents to any static host
+3. Ensure proper MIME types for `.js` files
 
 ## 🧪 Testing
 
@@ -264,6 +327,7 @@ For questions or support, please contact:
 
 **Built with ❤️ using React, TypeScript, and Tailwind CSS**
 
-🔗 **Live Demo:** [Your deployment URL]
-🚀 **Status:** Production Ready
+🔗 **Live Demo:** https://newlawai-landing-page.netlify.app/
+🚀 **Status:** Production Ready & Deployed
 ⭐ **Version:** 1.0.0
+🎯 **Backup Version:** https://newlawai-landing-page.netlify.app/backup.html
